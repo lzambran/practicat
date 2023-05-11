@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       role: backend
-  minReadySecond: 20
+  minReadySeconds: 20
   strategy:
     rollingUpdate:
       maxSurge: 1
