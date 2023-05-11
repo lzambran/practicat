@@ -2,18 +2,25 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend
-  matchLabels:
+  labels:
     role: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      role: backend
+  strategy:
+    type: RollingUpdate
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 0
-    type: RollingUpdate
+  template:
     metadata:
       labels:
         role: backend
     spec:
       containers:
-        - name: backend
-          image: zambrano1997/backend
-          ports:
+      - name: backend
+        image: zambrano1997/backend
+        ports:
         - containerPort: 5000
