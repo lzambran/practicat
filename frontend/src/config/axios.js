@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const usuarioAxios = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'http://34.123.205.43/'
 })
 
 export default usuarioAxios;
