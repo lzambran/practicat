@@ -1,8 +1,8 @@
 apiVersion: v1
-kind: Deployment
+kind: ConfigMap
 metadata:
   name: backend
-spec:
+  spec:
   replicas: 3
   selector:
     matchLabels:
@@ -17,11 +17,9 @@ spec:
     metadata:
       labels:
         role: backend
-    spec: 
+    spec:
       containers:
-      - name: backend
-        image: zambrano1997/backend
-        ports:
-      - containerPort: 5000
-      
-
+        - name: backend
+          image: zambrano1997/backend
+          ports:
+        - containerPort: 5000
