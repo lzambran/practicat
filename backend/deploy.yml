@@ -19,7 +19,7 @@ spec:
       labels:
         role: backend
     spec:
-      containers:
+    containers:
       - name: backend
         image: zambrano1997/backend
         ports:
