@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: zambrano1997/prueba
+---
+apiVersion: v1 
+kind: Service
+metadata:
+  name: frontend-srv
+spec:
+  type: NodePort
+  selector:
+    app: frontend
+  ports:
+    - name: my-app
+      port: 3000
+      targetPort: 3000
+    
